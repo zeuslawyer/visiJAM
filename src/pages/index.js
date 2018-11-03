@@ -2,9 +2,10 @@ import React from 'react'
 import { Link } from 'gatsby'
 
 import Layout from '../components/layout'
-import MainChart from '../components/mainChart'
+import LanguagesKnownChart from '../components/languagesKnownChart'
+import GenderChart from '../components/genderChart'
 
-const options = {
+const data1 = {
   title: {
     text: 'My chart',
   },
@@ -17,13 +18,13 @@ const options = {
 
 const IndexPage = () => (
   <Layout>
-    <div className="containter">
+    <div className="container">
       <div className="row">
-        <div className="col-6">
-          <MainChart />
+        <div className="col">
+          <LanguagesKnownChart />
         </div>
-        <div className="col-6">
-          <MainChart />
+        <div className="col">
+          <GenderChart />
         </div>
       </div>
     </div>

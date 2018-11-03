@@ -4,19 +4,17 @@ import HighchartsReact from 'highcharts-react-official'
 
 const options = {
   title: {
-    text: 'My chart',
+    text: 'My chart'
   },
-  series: [
-    {
-      data: [1, 2, 3],
-    },
-  ],
+  series: [{
+    data: [1, 2, 3]
+  }]
 }
 
-const MainChart = (props) => (
+const LanguagesKnownChart = () => (
       <HighchartsReact
         highcharts={Highcharts}
         options={options}
       ></HighchartsReact>
 )
-export default MainChart
+export default LanguagesKnownChart
