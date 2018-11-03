@@ -18,6 +18,7 @@ const options = {
     title: {
       text: 'Total JAMstackers using each language',
     },
+    allowDecimals: false
   },
   legend: {
     reversed: true,
