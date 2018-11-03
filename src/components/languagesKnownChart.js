@@ -3,6 +3,9 @@ import Highcharts from 'highcharts'
 import HighchartsReact from 'highcharts-react-official'
 
 const options = {
+  chart: {
+    width: 500
+},
   title: {
     text: 'My chart'
   },
