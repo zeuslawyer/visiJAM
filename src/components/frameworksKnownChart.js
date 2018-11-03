@@ -43,7 +43,7 @@ const options = {
   ],
 }
 
-const LanguagesKnownChart = () => (
+const FrameworksKnownChart = () => (
   <HighchartsReact highcharts={Highcharts} options={options} />
 )
-export default LanguagesKnownChart
+export default FrameworksKnownChart
