@@ -1,6 +1,7 @@
 import React from 'react'
 import Highcharts from 'highcharts'
 import HighchartsReact from 'highcharts-react-official'
+import EXPERIENCE from '../../helpers/parse_data_years_coding'
 
 const options = {
   chart: {
@@ -46,7 +47,13 @@ const options = {
       showInLegend: false,
       name: '',
       //'Less than 6 months', 'Between 6 to 12 months', 'Between 1 to 2 years', 'Between 3 to 5 years', 'More than 5 years'
-      data: [49.9, 71.5, 106.4, 129.2, 30],
+      data: [
+        EXPERIENCE.lessThan6,
+        EXPERIENCE.sixAndTwelve,
+        EXPERIENCE.oneToTwo,
+        EXPERIENCE.threeToFive,
+        EXPERIENCE.fivePlus,
+      ],
     },
   ],
 }
