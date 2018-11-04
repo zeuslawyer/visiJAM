@@ -2,6 +2,7 @@
 // import * as surveyData from '../form-schema.json'
 //array of dataObjects for each user who has submitted form
 // const FORM_SUBMISSIONS = surveyData.submissions
+import frameworksSchema from './frameworksSchema'
 
 //formats data for Frameworks charts
 //takes raw JSON array from form schema and returns Object with total count of users by experience level
@@ -52,7 +53,8 @@ function formatDataFrameworks(formData) {
     otherCount,
   }
 
-  return [
+  let startingSchema = frameworksSchema
+  let updatedData = [
     {
       name: 'Advanced',
       data: [
@@ -84,6 +86,9 @@ function formatDataFrameworks(formData) {
       ],
     },
   ]
+  console.log('line 89, ssssssss', startingSchema)
+  startingSchema.series = updatedData
+  return startingSchema
 }
 
 export default formatDataFrameworks

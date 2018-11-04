@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import genderSchema from '../../helpers/genderSchema'
+import frameworksSchema from '../../helpers/frameworksSchema'
 import getSurveyResults from '../../getSurveyData'
 
 import Layout from '../components/layout'
@@ -11,11 +13,40 @@ import FrameworksKnownChart from '../components/frameworksKnownChart'
 class IndexPage extends Component {
   constructor(props) {
     super(props)
-    // { frameworksData, languagesData, yearsCodingData, genderData }
-    this.chartData = getSurveyResults()
+    this.state = {
+      loading: true,
+      genderData: genderSchema,
+      frameworksData: frameworksSchema,
+    }
+    //if we call "getData" here, the app works, but gives a warning about setting state on an unmounted component
+    //and data is not updated in the charts
+    //other option is to call in render (gets rid of error but makes continuous calls api--> infinite loop of updating state)
+    this.getData = this.getData.bind(this)
+  }
+
+  componentDidMount() {
+    this.getData()
+  }
+
+  // returns { frameworksData, languagesData, yearsCodingData, genderData }
+  getData() {
+    console.log('inside getData fff')
+    getSurveyResults(data => {
+      console.log('data >>>', data)
+      this.setState({
+        genderData: data.genderData,
+        frameworksData: data.frameworksData,
+        loading: false,
+      })
+    })
   }
 
   render() {
+    // this.getData()
+    if (this.state.loading) {
+      return <div>LOADING</div>
+    }
+
     return (
       <Layout>
         <div className="container mt-3">
@@ -30,7 +61,7 @@ class IndexPage extends Component {
             <div className="col col-lg-6">
               <div className="card">
                 <div className="card-body">
-                  {/* <GenderChart options={this.chartData.genderData} /> */}
+                  <GenderChart options={this.state.genderData} />
                 </div>
               </div>
             </div>
@@ -48,9 +79,7 @@ class IndexPage extends Component {
             <div className="col col-lg-6">
               <div className="card">
                 <div className="card-body">
-                  {/* <FrameworksKnownChart
-                    optioms={this.chartData.frameworksData}
-                  /> */}
+                  <FrameworksKnownChart options={this.state.frameworksData} />
                 </div>
               </div>
             </div>
