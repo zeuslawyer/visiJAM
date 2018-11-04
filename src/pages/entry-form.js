@@ -376,50 +376,8 @@ const EntryForm = () => (
               </label>
             </div>
           </div>
-          </div>
         </div>
 
-<<<<<<< HEAD
-      <div className="row">
-      <div className="col-12 col-md-6">
-      <div className="card">
-        <div className="card-body">
-          <h3 className="h3">What do you hope to take away from this hackathon?</h3>
-          <div className="form-check">
-            <input className="form-check-input" type="checkbox" value="moreExp" id="moreExp" name="takeaway"/>
-            <label className="form-check-label" htmlFor="moreExp">
-              More experience coding in a team
-            </label>
-          </div>
-          <div className="form-check">
-            <input className="form-check-input" type="checkbox" value="networking" id="networking" name="takeaway"/>
-            <label className="form-check-label" htmlFor="networking">
-              Networking
-            </label>
-          </div>
-          <div className="form-check">
-            <input className="form-check-input" type="checkbox" value="mentoring" id="mentoring" name="takeaway"/>
-            <label className="form-check-label" htmlFor="mentoring">
-              Being a mentor to others
-            </label>
-          </div>
-          <div className="form-check">
-            <input className="form-check-input" type="checkbox" value="winning" id="winning" name="takeaway"/>
-            <label className="form-check-label" htmlFor="winning">
-              Winning prizes
-            </label>
-          </div>
-        </div>
-      </div>
-      </div>
-      </div>
-
-      <div className="button-wrapper d-flex justify-content-center">
-        <button type="submit" className="btn btn-primary">Submit</button>
-      </div>
-    </form>
-  </div>
-=======
         <div className="button form-group">
           <button type="submit" className="btn btn-primary">
             Submit
@@ -427,7 +385,6 @@ const EntryForm = () => (
         </div>
       </form>
     </div>
->>>>>>> sarahbranch
   </Layout>
 )
 
