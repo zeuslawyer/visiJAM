@@ -2,8 +2,12 @@
 
 // const FORM_SUB = surveyData.submissions
 
+import yearsSchema from './yearsSchema'
+
 function findUserExperience(data) {
-  const EXPERIENCE = {
+  let startSchema = yearsSchema
+
+  let EXPERIENCE = {
     lessThan6: 0,
     sixAndTwelve: 0,
     oneToTwo: 0,
@@ -24,7 +28,15 @@ function findUserExperience(data) {
       EXPERIENCE.fivePlus++
     }
   }
-  return EXPERIENCE
+
+  startSchema.series[0].data = [
+    EXPERIENCE.lessThan6,
+    EXPERIENCE.sixAndTwelve,
+    EXPERIENCE.oneToTwo,
+    EXPERIENCE.threeToFive,
+    EXPERIENCE.fivePlus,
+  ]
+  return startSchema
 }
 
 export default findUserExperience
