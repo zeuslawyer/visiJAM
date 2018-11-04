@@ -5,7 +5,7 @@ import HighchartsReact from 'highcharts-react-official'
 const options = {
   chart: {
     type: 'bar',
-    width: 500,
+    // width: 500,
   },
   title: {
     text: 'Frameworks Languages by Experience Level',

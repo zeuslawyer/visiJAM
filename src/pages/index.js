@@ -10,21 +10,37 @@ const IndexPage = () => (
   <Layout>
     <div className="container">
       <div className="row">
-        <div className="col">
-          <LanguagesKnownChart />
+        <div className="col col-lg-6">
+          <div className="card">
+            <div className="card-body">
+              <LanguagesKnownChart />
+            </div>
+          </div>
         </div>
-        <div className="col">
-          <GenderChart />
+        <div className="col col-lg-6">
+          <div className="card">
+            <div className="card-body">
+            <GenderChart />
+            </div>
+          </div>
         </div>
       </div>
       <div className="row">
-      <div className="col">
-        <YearsOfCodingChart />
+      <div className="col col-lg-6">
+        <div className="card">
+          <div className="card-body">
+          <YearsOfCodingChart />
+          </div>
+        </div>
       </div>
-      <div className="col">
-        <FrameworksKnownChart />
+      <div className="col col-lg-6">
+        <div className="card">
+          <div className="card-body">
+          <FrameworksKnownChart />
+          </div>
+        </div>
       </div>
-    </div>
+      </div>
     </div>
   </Layout>
 )

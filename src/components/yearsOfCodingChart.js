@@ -5,7 +5,7 @@ import HighchartsReact from 'highcharts-react-official'
 const options = {
   chart: {
       type: 'column',
-      width: 500
+      // width: 500
   },
   title: {
       text: 'Years of Coding'

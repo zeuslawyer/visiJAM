@@ -10,7 +10,7 @@ const options = {
       plotBorderWidth: null,
       plotShadow: false,
       type: 'pie',
-      width: 500
+      // width: 500
   },
   title: {
       text: 'Gender Distribution'
