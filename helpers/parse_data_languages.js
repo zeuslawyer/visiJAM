@@ -47,13 +47,13 @@ const OTHER = {
 
 function findJavaScriptUsers() {
   for (let i = 0; i < FORM_SUB.length; i++) {
-    if (FORM_SUB[i].javaScriptExperience === 'Beginner') {
+    if (FORM_SUB[i].javascriptExperience === 'Beginner') {
       JAVASCRIPT.beginner++
-    } else if (FORM_SUB[i].javaScriptExperience === 'Intermediate') {
+    } else if (FORM_SUB[i].javascriptExperience === 'Intermediate') {
       JAVASCRIPT.intermediate++
-    } else if (FORM_SUB[i].javaScriptExperience === 'Advanced') {
+    } else if (FORM_SUB[i].javascriptExperience === 'Advanced') {
       JAVASCRIPT.advanced++
-    } else if (FORM_SUB[i].javaScriptExperience === 'Advanced') {
+    } else if (FORM_SUB[i].javascriptExperience === 'Advanced') {
       JAVASCRIPT.noExperience++
     }
   }
