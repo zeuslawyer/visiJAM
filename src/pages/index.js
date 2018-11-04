@@ -41,7 +41,7 @@ class IndexPage extends Component {
               </div>
             </div>
           </div>
-          <div className="row">
+          <div className="row mt-3">
             <div className="col col-lg-6">
               <div className="card">
                 <div className="card-body">

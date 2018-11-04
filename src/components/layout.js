@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
-import { StaticQuery, graphql } from 'gatsby'
+import { StaticQuery, graphql, Link } from 'gatsby'
 
 import Header from './header'
 import '../scss/main.scss'
@@ -48,6 +48,14 @@ const Layout = ({ children }) => (
               <div className="row d-flex justify-content-center">
                 <div className="col" style={paragraphStyle}>
                  <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Autem quisquam accusantium quia odit quas ullam soluta necessitatibus quibusdam, nostrum eligendi atque quo fugit cupiditate numquam laboriosam quam obcaecati ut similique.</p>
+                 <div className="d-flex justify-content-around">
+                 <Link to="/">
+                   <button className="btn btn-outline-dark" >Home</button>
+                 </Link>
+                 <Link to="/entry-form">
+                   <button className="btn btn-outline-dark" >Entry form</button>
+                 </Link>
+                 </div>
                 </div>
               </div>
             </div>
