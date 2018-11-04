@@ -1,6 +1,6 @@
 // import * as surveyData from './form-schema.json'
 import genderSchema from './genderSchema'
-const surveyData = require('../form-schema.json')
+// const surveyData = require('../form-schema.json')
 /*   INSTRUCTIONS
     @Params - the array that contains all the respondent responses. on the Formspree API JSON response
     this is the 'submissions' property - the same property in the form-schema.json

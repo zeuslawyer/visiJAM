@@ -1,5 +1,9 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import genderSchema from '../../helpers/genderSchema'
+import frameworksSchema from '../../helpers/frameworksSchema'
+import languagesSchema from '../../helpers/languagesSchema'
+import yearSchema from '../../helpers/yearsSchema'
 import getSurveyResults from '../helpers/getSurveyData'
 
 import Layout from '../components/layout'
@@ -33,7 +37,7 @@ class IndexPage extends Component {
   // returns { frameworksData, languagesData, yearsCodingData, genderData }
   getData() {
     // console.log('inside getData fff')
-    console.log('<<<MADE API CALL>>>')
+
     getSurveyResults(data => {
       this.setState({
         genderData: data.genderData,
