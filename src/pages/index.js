@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import getSurveyResults from '../../getSurveyData'
 
 import Layout from '../components/layout'
 import LanguagesKnownChart from '../components/languagesKnownChart'
@@ -8,17 +9,10 @@ import YearsOfCodingChart from '../components/yearsOfCodingChart'
 import FrameworksKnownChart from '../components/frameworksKnownChart'
 
 class IndexPage extends Component {
-  componentDidMount() {
-    const instance = axios.create({
-      headers: {
-        'Authorization': 'Bearer 7e2995fc8d5f73a9e47d07ccbf70bae6272ab139'
-      }
-    })
-    instance.get('https://formspree.io/api/0/forms/xolnelem/submissions')
-      .then(res => {
-        const data = res.data;
-        console.log(data);
-      })
+  constructor(props) {
+    super(props)
+    // { frameworksData, languagesData, yearsCodingData, genderData }
+    this.chartData = getSurveyResults()
   }
 
   render() {
@@ -29,30 +23,34 @@ class IndexPage extends Component {
             <div className="col col-lg-6">
               <div className="card">
                 <div className="card-body">
-                  <LanguagesKnownChart />
+                  {/* <LanguagesKnownChart options={this.chartData.languagesData} /> */}
                 </div>
               </div>
             </div>
             <div className="col col-lg-6">
               <div className="card">
                 <div className="card-body">
-                  <GenderChart />
+                  {/* <GenderChart options={this.chartData.genderData} /> */}
                 </div>
               </div>
             </div>
           </div>
-          <div className="row">
+          <div className="row mt-3">
             <div className="col col-lg-6">
               <div className="card">
                 <div className="card-body">
-                  <YearsOfCodingChart />
+                  {/* <YearsOfCodingChart
+                    options={this.chartData.yearsCodingData}
+                  /> */}
                 </div>
               </div>
             </div>
             <div className="col col-lg-6">
               <div className="card">
                 <div className="card-body">
-                  <FrameworksKnownChart />
+                  {/* <FrameworksKnownChart
+                    optioms={this.chartData.frameworksData}
+                  /> */}
                 </div>
               </div>
             </div>
