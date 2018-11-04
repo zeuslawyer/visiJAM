@@ -35,6 +35,13 @@ const Layout = ({ children }) => (
           <div className="row">
             {children}
           </div>
+          <div className="row">
+            <footer className="footer">
+            <div className="container d-flex flex-column align-items-center justify-content-center">
+              <p className="footer-text">VisiJAM Project @ JAMstack 2018</p>
+            </div>
+            </footer>
+          </div>
         </div>
       </>
     )}

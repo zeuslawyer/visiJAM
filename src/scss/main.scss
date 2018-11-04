@@ -9,10 +9,10 @@ body {
 }
 
 .header {
+  padding:1rem;
   background-color: khaki;
   width: 100vw;
   margin-bottom: 0.5rem;
-  padding-bottom: 1rem;
 
   h1 {
     text-align: center;
@@ -29,4 +29,22 @@ body {
 
 .card {
   margin: 10px 0;
+}
+
+.email{
+padding:1rem;
+}
+
+.footer{
+  background-color: #F3F3F3;
+  width:100%;
+}
+
+.button-wrapper{
+  margin:1.5rem;
+}
+
+.footer-text{
+  margin-top:1rem;
+  margin-bottom:1em;
 }
