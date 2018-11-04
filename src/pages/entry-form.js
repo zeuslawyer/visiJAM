@@ -7,6 +7,7 @@ const EntryForm = () => (
   <Layout>
    <div className="container-fluid pt-4">
     <form action="https://formspree.io/xolnelem" method="POST">
+    {/* <form action="https://formspree.io/mrlakawm" method="POST"> */}
       <div className="email form-group w-50 mx-auto">
         <label htmlFor="node[email]">Email address</label>
         <input type="email" name="_replyto" className="form-control" id="node[email]" aria-describedby="emailHelp"

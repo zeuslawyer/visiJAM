@@ -21,16 +21,18 @@ class IndexPage extends Component {
     //if we call "getData" here, the app works, but gives a warning about setting state on an unmounted component
     //and data is not updated in the charts
     //other option is to call in render (gets rid of error but makes continuous calls api--> infinite loop of updating state)
-    this.getData = this.getData.bind(this)
+    this.getData()
+    // this.getData = this.getData.bind(this)
   }
 
-  componentDidMount() {
-    this.getData()
-  }
+  // componentDidMount() {
+  //   this.getData()
+  // }
 
   // returns { frameworksData, languagesData, yearsCodingData, genderData }
   getData() {
-    console.log('inside getData fff')
+    // console.log('inside getData fff')
+    console.log('<<<MADE API CALL>>>')
     getSurveyResults(data => {
       console.log('data >>>', data)
       this.setState({
@@ -42,9 +44,16 @@ class IndexPage extends Component {
   }
 
   render() {
-    // this.getData()
     if (this.state.loading) {
-      return <div>LOADING</div>
+      // return <div>LOADING</div>
+      return (
+        <div className="header ">
+          <img
+            className="loader"
+            src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/585d0331234507.564a1d239ac5e.gif"
+          />
+        </div>
+      )
     }
 
     return (
