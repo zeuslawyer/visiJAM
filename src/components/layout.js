@@ -8,7 +8,7 @@ import '../scss/main.scss'
 
 const headerStyle={
   textAlign:'center',
-  margin:'3rem 0',
+  margin:'2rem 0 1rem',
   fontSize:'5rem'
 }
 
