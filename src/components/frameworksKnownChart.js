@@ -1,6 +1,7 @@
 import React from 'react'
 import Highcharts from 'highcharts'
 import HighchartsReact from 'highcharts-react-official'
+import frameworksData from '../../helpers/parse_data_frameworks'
 
 const options = {
   chart: {
@@ -11,7 +12,7 @@ const options = {
     text: 'Frameworks Languages by Experience Level',
   },
   xAxis: {
-    categories: ['React', 'Angular', 'View', 'JQuery', 'Other'],
+    categories: ['React', 'Angular', 'Vue', 'JQuery', 'Other'],
   },
   yAxis: {
     min: 0,
@@ -27,20 +28,7 @@ const options = {
       stacking: 'normal',
     },
   },
-  series: [
-    {
-      name: 'Advanced',
-      data: [5, 3, 4, 7, 2],
-    },
-    {
-      name: 'Intermediate',
-      data: [2, 2, 3, 2, 1],
-    },
-    {
-      name: 'Beginner',
-      data: [3, 4, 4, 2, 5],
-    },
-  ],
+  series: frameworksData,
 }
 
 const FrameworksKnownChart = () => (
