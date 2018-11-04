@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component } from 'react'
 import Highcharts from 'highcharts'
 import HighchartsReact from 'highcharts-react-official'
 import EXPERIENCE from '../../helpers/parse_data_years_coding'
@@ -58,7 +58,12 @@ const options = {
   ],
 }
 
-const YearsOfCodingChart = () => (
-  <HighchartsReact highcharts={Highcharts} options={options} />
-)
+class YearsOfCodingChart extends Component {
+  render() {
+    return (
+      <HighchartsReact highcharts={Highcharts} options={this.props.options} />
+    )
+  }
+}
+
 export default YearsOfCodingChart
