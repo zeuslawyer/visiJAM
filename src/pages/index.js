@@ -14,6 +14,7 @@ class IndexPage extends Component {
   constructor(props) {
     super(props)
     this.state = {
+      loading: true,
       genderData: genderSchema,
       frameworksData: frameworksSchema,
     }
@@ -26,20 +27,26 @@ class IndexPage extends Component {
   componentDidMount() {
     this.getData()
   }
+
   // returns { frameworksData, languagesData, yearsCodingData, genderData }
   getData() {
-    console.log('inside getData fffff')
+    console.log('inside getData fff')
     getSurveyResults(data => {
       console.log('data >>>', data)
       this.setState({
         genderData: data.genderData,
         frameworksData: data.frameworksData,
+        loading: false,
       })
     })
   }
 
   render() {
     // this.getData()
+    if (this.state.loading) {
+      return <div>LOADING</div>
+    }
+
     return (
       <Layout>
         <div className="container mt-3">
