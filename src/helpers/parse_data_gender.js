@@ -134,7 +134,7 @@ const countGenderResponses = submissions => {
       declinedToAnswerCount += 1
     }
   })
-  //test
+  // test
   if (
     totalRespondents !=
     declinedToAnswerCount + maleCount + femaleCount + otherCount
