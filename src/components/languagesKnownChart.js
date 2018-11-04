@@ -1,6 +1,15 @@
 import React from 'react'
 import Highcharts from 'highcharts'
 import HighchartsReact from 'highcharts-react-official'
+import {
+  JAVASCRIPT,
+  PYTHON,
+  JAVA,
+  CPLUSPLUS,
+  RUBY,
+  PHP,
+  OTHER,
+} from '../../helpers/parse_data_languages'
 
 const options = {
   chart: {
@@ -18,7 +27,7 @@ const options = {
     title: {
       text: 'Total JAMstackers using each language',
     },
-    allowDecimals: false
+    allowDecimals: false,
   },
   legend: {
     reversed: true,
@@ -31,15 +40,39 @@ const options = {
   series: [
     {
       name: 'Advanced',
-      data: [5, 3, 4, 7, 2, 10, 2],
+      data: [
+        JAVASCRIPT.advanced,
+        PYTHON.advanced,
+        JAVA.advanced,
+        CPLUSPLUS.advanced,
+        RUBY.advanced,
+        PHP.advanced,
+        OTHER.advanced,
+      ],
     },
     {
       name: 'Intermediate',
-      data: [2, 2, 3, 2, 1, 1, 0],
+      data: [
+        JAVASCRIPT.intermediate,
+        PYTHON.intermediate,
+        JAVA.intermediate,
+        CPLUSPLUS.intermediate,
+        RUBY.intermediate,
+        PHP.intermediate,
+        OTHER.intermediate,
+      ],
     },
     {
       name: 'Beginner',
-      data: [3, 4, 4, 2, 5, 9, 5],
+      data: [
+        JAVASCRIPT.beginner,
+        PYTHON.beginner,
+        JAVA.beginner,
+        CPLUSPLUS.beginner,
+        RUBY.beginner,
+        PHP.beginner,
+        OTHER.beginner,
+      ],
     },
   ],
 }
