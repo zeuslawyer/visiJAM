@@ -8,7 +8,7 @@ import '../scss/main.scss'
 
 const headerStyle={
   textAlign:'center',
-  margin:'3rem 0',
+  margin:'2rem 0 1rem',
   fontSize:'5rem'
 }
 
@@ -34,8 +34,8 @@ const Layout = ({ children }) => (
         <Helmet
           title={data.site.siteMetadata.title}
           meta={[
-            { name: 'description', content: 'Sample' },
-            { name: 'keywords', content: 'sample, something' },
+            { name: 'description', content: 'VisiJAM' },
+            { name: 'keywords', content: 'jamstack, data visualization' },
           ]}
         >
           <html lang="en" />
@@ -47,8 +47,8 @@ const Layout = ({ children }) => (
               <h1 style={headerStyle}>VisiJAM</h1>
               <div className="row d-flex justify-content-center">
                 <div className="col" style={paragraphStyle}>
-                 <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Autem quisquam accusantium quia odit quas ullam soluta necessitatibus quibusdam, nostrum eligendi atque quo fugit cupiditate numquam laboriosam quam obcaecati ut similique.</p>
-                 <div className="d-flex justify-content-around">
+                <p>Real-time Hackathon Demographics</p>                 
+                <div className="d-flex justify-content-around">
                  <Link to="/">
                    <button className="btn btn-outline-dark" >Home</button>
                  </Link>
