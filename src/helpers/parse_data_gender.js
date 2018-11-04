@@ -1,5 +1,5 @@
 // import * as surveyData from './form-schema.json'
-const surveyData= require('../form-schema.json')
+const surveyData= require('../../form-schema.json')
 
 /*   INSTRUCTIONS
     @Params - the array that contains all the respondent responses. on the Formspree API JSON response
@@ -14,19 +14,19 @@ const getGenderDataForChart = (submissions) => {
     console.log('....getGenderDataForChart() invoked....');
 
     var responsesCounts = countGenderResponses(submissions);
-    
+
     let results = []
     let males = {
        name : 'Male',
-       y: responsesCounts.totalMale 
+       y: responsesCounts.totalMale
     }
     let females = {
        name : 'Female',
-       y: responsesCounts.totalFemale 
+       y: responsesCounts.totalFemale
     }
     let others = {
        name : 'Other',
-       y: responsesCounts.totalOther 
+       y: responsesCounts.totalOther
     }
     let declined = {
         name: 'Decline to identify',
@@ -43,7 +43,7 @@ const countGenderResponses = (submissions) => {
     let otherCount = 0;
     let declinedToAnswerCount = 0;
     let totalRespondents = submissions.length
-    
+
     submissions.forEach((elem, index)=>{
         if (elem.gender) {
             if (elem.gender.toLowerCase() ==='male') {
@@ -59,7 +59,7 @@ const countGenderResponses = (submissions) => {
                 declinedToAnswerCount +=1
             }
         }
-        
+
         if (!elem.gender) {
             declinedToAnswerCount += 1;
         }
@@ -92,4 +92,3 @@ const submissions = surveyData.submissions;
 getGenderDataForChart(submissions);
 
 export {getGenderDataForChart};
-

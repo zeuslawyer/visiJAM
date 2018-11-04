@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Highcharts from 'highcharts'
 import HighchartsReact from 'highcharts-react-official'
-import frameworksData from '../../helpers/parse_data_frameworks'
+import frameworksData from '../helpers/parse_data_frameworks'
 
 const options = {
   chart: {

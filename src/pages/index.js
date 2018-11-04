@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import getSurveyResults from '../../getSurveyData'
+import getSurveyResults from '../helpers/getSurveyData'
 
 import Layout from '../components/layout'
 import LanguagesKnownChart from '../components/languagesKnownChart'

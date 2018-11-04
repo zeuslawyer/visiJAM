@@ -1,20 +1,21 @@
 import React from 'react'
 import { Link } from 'gatsby'
 
-const Header = ({ siteTitle }) => (
-  <div>
-    <div>
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: 'white',
-            textDecoration: 'none',
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </h1>
+const Header = () => (
+  <div className="header">
+    <h1>VisiJAM</h1>
+    <div className="row d-flex justify-content-center">
+      <div className="col paragraph-container">
+        <p>Real-time Hackathon Demographics</p>
+        <div className="d-flex justify-content-around">
+          <Link to="/">
+            <button className="btn btn-outline-dark" >Home</button>
+          </Link>
+          <Link to="/entry-form">
+            <button className="btn btn-outline-dark" >Entry form</button>
+          </Link>
+        </div>
+      </div>
     </div>
   </div>
 )
