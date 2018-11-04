@@ -148,12 +148,13 @@ function findOtherUsers(data) {
   }
 }
 
-export {
-  findJavaScriptUsers,
-  findPythonUsers,
-  findJavaUsers,
-  findCPlusPlusUsers,
-  findRubyUsers,
-  findPhpUsers,
-  findOtherUsers,
+function masterFunc(data) {
+  findJavaScriptUsers(data)
+  findPythonUsers(data)
+  findJavaUsers(data)
+  findCPlusPlusUsers(data)
+  findRubyUsers(data)
+  findPhpUsers(data)
+  findOtherUsers(data)
 }
+export default masterFunc
