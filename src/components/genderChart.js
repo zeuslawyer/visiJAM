@@ -1,7 +1,7 @@
 import React from 'react'
 import Highcharts from 'highcharts'
 import HighchartsReact from 'highcharts-react-official'
-
+import getGenderDataForChart from '../../helpers/parse_data_gender
 
 
 const options = {
@@ -47,10 +47,11 @@ const options = {
   }]
 };
 
+getGenderDataForChart()
 const GenderChart = () => (
       <HighchartsReact
         highcharts={Highcharts}
         options={options}
       ></HighchartsReact>
 )
-export default GenderChart
+export default getGenderDataForChart(surveyData.submissions)
