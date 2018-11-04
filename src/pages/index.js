@@ -24,7 +24,7 @@ class IndexPage extends Component {
   render() {
     return (
       <Layout>
-        <div className="container">
+        <div className="container mt-3">
           <div className="row">
             <div className="col col-lg-6">
               <div className="card">
