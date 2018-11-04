@@ -8,7 +8,7 @@ import FrameworksKnownChart from '../components/frameworksKnownChart'
 
 const IndexPage = () => (
   <Layout>
-    <div className="container">
+    <div className="container mt-3">
       <div className="row">
         <div className="col col-lg-6">
           <div className="card">
@@ -25,7 +25,7 @@ const IndexPage = () => (
           </div>
         </div>
       </div>
-      <div className="row">
+      <div className="row mt-3">
       <div className="col col-lg-6">
         <div className="card">
           <div className="card-body">
