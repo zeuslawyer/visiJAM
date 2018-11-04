@@ -1,147 +1,159 @@
-import * as surveyData from '../form-schema.json'
+// import * as surveyData from '../form-schema.json'
 
-const FORM_SUB = surveyData.submissions
+// const FORM_SUB = surveyData.submissions
 
-const JAVASCRIPT = {
-  noExperience: 0,
-  beginner: 0,
-  intermediate: 0,
-  advanced: 0,
-}
-const PYTHON = {
-  noExperience: 0,
-  beginner: 0,
-  intermediate: 0,
-  advanced: 0,
-}
-const JAVA = {
-  noExperience: 0,
-  beginner: 0,
-  intermediate: 0,
-  advanced: 0,
-}
-const CPLUSPLUS = {
-  noExperience: 0,
-  beginner: 0,
-  intermediate: 0,
-  advanced: 0,
-}
-const RUBY = {
-  noExperience: 0,
-  beginner: 0,
-  intermediate: 0,
-  advanced: 0,
-}
-const PHP = {
-  noExperience: 0,
-  beginner: 0,
-  intermediate: 0,
-  advanced: 0,
-}
-const OTHER = {
-  noExperience: 0,
-  beginner: 0,
-  intermediate: 0,
-  advanced: 0,
-}
+function findJavaScriptUsers(data) {
+  const JAVASCRIPT = {
+    noExperience: 0,
+    beginner: 0,
+    intermediate: 0,
+    advanced: 0,
+  }
 
-function findJavaScriptUsers() {
-  for (let i = 0; i < FORM_SUB.length; i++) {
-    if (FORM_SUB[i].javascriptExperience === 'Beginner') {
+  for (let i = 0; i < data.submissions.length; i++) {
+    if (data.submissions[i].javascriptExperience === 'Beginner') {
       JAVASCRIPT.beginner++
-    } else if (FORM_SUB[i].javascriptExperience === 'Intermediate') {
+    } else if (data.submissions[i].javascriptExperience === 'Intermediate') {
       JAVASCRIPT.intermediate++
-    } else if (FORM_SUB[i].javascriptExperience === 'Advanced') {
+    } else if (data.submissions[i].javascriptExperience === 'Advanced') {
       JAVASCRIPT.advanced++
-    } else if (FORM_SUB[i].javascriptExperience === 'Advanced') {
+    } else if (data.submissions[i].javascriptExperience === 'Advanced') {
       JAVASCRIPT.noExperience++
     }
   }
 }
-function findPythonUsers() {
-  for (let i = 0; i < FORM_SUB.length; i++) {
-    if (FORM_SUB[i].pythonExperience === 'Beginner') {
+
+function findPythonUsers(data) {
+  const PYTHON = {
+    noExperience: 0,
+    beginner: 0,
+    intermediate: 0,
+    advanced: 0,
+  }
+
+  for (let i = 0; i < data.submissions.length; i++) {
+    if (data.submissions[i].pythonExperience === 'Beginner') {
       PYTHON.beginner++
-    } else if (FORM_SUB[i].pythonExperience === 'Intermediate') {
+    } else if (data.submissions[i].pythonExperience === 'Intermediate') {
       PYTHON.intermediate++
-    } else if (FORM_SUB[i].pythonExperience === 'Advanced') {
+    } else if (data.submissions[i].pythonExperience === 'Advanced') {
       PYTHON.advanced++
-    } else if (FORM_SUB[i].pythonExperience === 'Advanced') {
+    } else if (data.submissions[i].pythonExperience === 'Advanced') {
       PYTHON.noExperience++
     }
   }
 }
-function findJavaUsers() {
-  for (let i = 0; i < FORM_SUB.length; i++) {
-    if (FORM_SUB[i].javaExperience === 'Beginner') {
+
+function findJavaUsers(data) {
+  const JAVA = {
+    noExperience: 0,
+    beginner: 0,
+    intermediate: 0,
+    advanced: 0,
+  }
+
+  for (let i = 0; i < data.submissions.length; i++) {
+    if (data.submissions[i].javaExperience === 'Beginner') {
       JAVA.beginner++
-    } else if (FORM_SUB[i].javaExperience === 'Intermediate') {
+    } else if (data.submissions[i].javaExperience === 'Intermediate') {
       JAVA.intermediate++
-    } else if (FORM_SUB[i].javaExperience === 'Advanced') {
+    } else if (data.submissions[i].javaExperience === 'Advanced') {
       JAVA.advanced++
-    } else if (FORM_SUB[i].javaExperience === 'Advanced') {
+    } else if (data.submissions[i].javaExperience === 'Advanced') {
       JAVA.noExperience++
     }
   }
 }
-function findCPlusPlusUsers() {
-  for (let i = 0; i < FORM_SUB.length; i++) {
-    if (FORM_SUB[i]['c++experience'] === 'Beginner') {
+
+function findCPlusPlusUsers(data) {
+  const CPLUSPLUS = {
+    noExperience: 0,
+    beginner: 0,
+    intermediate: 0,
+    advanced: 0,
+  }
+
+  for (let i = 0; i < data.submissions.length; i++) {
+    if (data.submissions[i]['c++experience'] === 'Beginner') {
       CPLUSPLUS.beginner++
-    } else if (FORM_SUB[i]['c++experience'] === 'Intermediate') {
+    } else if (data.submissions[i]['c++experience'] === 'Intermediate') {
       CPLUSPLUS.intermediate++
-    } else if (FORM_SUB[i]['c++experience'] === 'Advanced') {
+    } else if (data.submissions[i]['c++experience'] === 'Advanced') {
       CPLUSPLUS.advanced++
-    } else if (FORM_SUB[i]['c++experience'] === 'Advanced') {
+    } else if (data.submissions[i]['c++experience'] === 'Advanced') {
       CPLUSPLUS.noExperience++
     }
   }
 }
-function findRubyUsers() {
-  for (let i = 0; i < FORM_SUB.length; i++) {
-    if (FORM_SUB[i].rubyExperience === 'Beginner') {
+
+function findRubyUsers(data) {
+  const RUBY = {
+    noExperience: 0,
+    beginner: 0,
+    intermediate: 0,
+    advanced: 0,
+  }
+
+  for (let i = 0; i < data.submissions.length; i++) {
+    if (data.submissions[i].rubyExperience === 'Beginner') {
       RUBY.beginner++
-    } else if (FORM_SUB[i].rubyExperience === 'Intermediate') {
+    } else if (data.submissions[i].rubyExperience === 'Intermediate') {
       RUBY.intermediate++
-    } else if (FORM_SUB[i].rubyExperience === 'Advanced') {
+    } else if (data.submissions[i].rubyExperience === 'Advanced') {
       RUBY.advanced++
-    } else if (FORM_SUB[i].rubyExperience === 'Advanced') {
+    } else if (data.submissions[i].rubyExperience === 'Advanced') {
       RUBY.noExperience++
     }
   }
 }
-function findPhpUsers() {
-  for (let i = 0; i < FORM_SUB.length; i++) {
-    if (FORM_SUB[i].phpExperience === 'Beginner') {
+
+function findPhpUsers(data) {
+  const PHP = {
+    noExperience: 0,
+    beginner: 0,
+    intermediate: 0,
+    advanced: 0,
+  }
+
+  for (let i = 0; i < data.submissions.length; i++) {
+    if (data.submissions[i].phpExperience === 'Beginner') {
       PHP.beginner++
-    } else if (FORM_SUB[i].phpExperience === 'Intermediate') {
+    } else if (data.submissions[i].phpExperience === 'Intermediate') {
       PHP.intermediate++
-    } else if (FORM_SUB[i].phpExperience === 'Advanced') {
+    } else if (data.submissions[i].phpExperience === 'Advanced') {
       PHP.advanced++
-    } else if (FORM_SUB[i].phpExperience === 'Advanced') {
+    } else if (data.submissions[i].phpExperience === 'Advanced') {
       PHP.noExperience++
     }
   }
 }
-function findOtherUsers() {
-  for (let i = 0; i < FORM_SUB.length; i++) {
-    if (FORM_SUB[i].otherLanguages === 'Beginner') {
+
+function findOtherUsers(data) {
+  const OTHER = {
+    noExperience: 0,
+    beginner: 0,
+    intermediate: 0,
+    advanced: 0,
+  }
+  for (let i = 0; i < data.submissions.length; i++) {
+    if (data.submissions[i].otherLanguages === 'Beginner') {
       OTHER.beginner++
-    } else if (FORM_SUB[i].otherLanguages === 'Intermediate') {
+    } else if (data.submissions[i].otherLanguages === 'Intermediate') {
       OTHER.intermediate++
-    } else if (FORM_SUB[i].otherLanguages === 'Advanced') {
+    } else if (data.submissions[i].otherLanguages === 'Advanced') {
       OTHER.advanced++
-    } else if (FORM_SUB[i].otherLanguages === 'Advanced') {
+    } else if (data.submissions[i].otherLanguages === 'Advanced') {
       OTHER.noExperience++
     }
   }
 }
 
-findJavaScriptUsers()
-findPythonUsers()
-findJavaUsers()
-findCPlusPlusUsers()
-findRubyUsers()
-findPhpUsers()
-findOtherUsers()
-export { JAVASCRIPT, PYTHON, JAVA, CPLUSPLUS, RUBY, PHP, OTHER }
+export {
+  findJavaScriptUsers,
+  findPythonUsers,
+  findJavaUsers,
+  findCPlusPlusUsers,
+  findRubyUsers,
+  findPhpUsers,
+  findOtherUsers,
+}
