@@ -1,8 +1,8 @@
 import axios from 'axios'
-import formatDataFrameworks from './helpers/parse_data_frameworks'
-import masterFunc from './helpers/parse_data_languages'
-import { getGenderDataForChart } from './helpers/parse_data_gender'
-import findUserExperience from './helpers/parse_data_years_coding'
+import formatDataFrameworks from './parse_data_frameworks'
+import masterFunc from './parse_data_languages'
+import { getGenderDataForChart } from './parse_data_gender'
+import findUserExperience from './parse_data_years_coding'
 
 function getSurveyResults(cb) {
   console.log('inside getsurveyresults tttttttttt')

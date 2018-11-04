@@ -1,6 +1,11 @@
 // import * as surveyData from './form-schema.json'
+<<<<<<< HEAD:helpers/parse_data_gender.js
 import genderSchema from './genderSchema'
 const surveyData = require('../form-schema.json')
+=======
+const surveyData= require('../../form-schema.json')
+
+>>>>>>> github:src/helpers/parse_data_gender.js
 /*   INSTRUCTIONS
     @Params - the array that contains all the respondent responses. on the Formspree API JSON response
     this is the 'submissions' property - the same property in the form-schema.json
@@ -13,8 +18,78 @@ const surveyData = require('../form-schema.json')
 const getGenderDataForChart = submissions => {
   //   console.log('....getGenderDataForChart() invoked....')
 
+<<<<<<< HEAD:helpers/parse_data_gender.js
   //base schema for highCharts before axios call to get formData
   let startingScehma = genderSchema
+=======
+    var responsesCounts = countGenderResponses(submissions);
+
+    let results = []
+    let males = {
+       name : 'Male',
+       y: responsesCounts.totalMale
+    }
+    let females = {
+       name : 'Female',
+       y: responsesCounts.totalFemale
+    }
+    let others = {
+       name : 'Other',
+       y: responsesCounts.totalOther
+    }
+    let declined = {
+        name: 'Decline to identify',
+        y: responsesCounts.declinedToAnswer
+    }
+    results.push(males, females, others, declined)
+    // console.log(results)
+}
+
+const countGenderResponses = (submissions) => {
+    console.log('....countGenderResponses() invoked....');
+    let maleCount = 0;
+    let femaleCount = 0;
+    let otherCount = 0;
+    let declinedToAnswerCount = 0;
+    let totalRespondents = submissions.length
+
+    submissions.forEach((elem, index)=>{
+        if (elem.gender) {
+            if (elem.gender.toLowerCase() ==='male') {
+                maleCount +=1
+            }
+            if (elem.gender.toLowerCase() ==='female') {
+                femaleCount +=1
+            }
+            if (elem.gender.toLowerCase() ==='other') {
+                otherCount +=1
+            }
+            if (elem.gender.toLowerCase() ==='decline to identify') {
+                declinedToAnswerCount +=1
+            }
+        }
+
+        if (!elem.gender) {
+            declinedToAnswerCount += 1;
+        }
+    })
+    //test
+    if (totalRespondents != declinedToAnswerCount+maleCount+femaleCount+otherCount) {
+        console.log('math error in counting gender responses');
+    } else {
+        console.log('Totals tally...yay!');
+    }
+    var res = {
+        declinedToAnswer: declinedToAnswerCount,
+        totalMale: maleCount,
+        totalFemale: femaleCount,
+        totalOther: otherCount,
+        totalResponses: totalRespondents
+    }
+    // console.log(res)
+    return res
+}
+>>>>>>> github:src/helpers/parse_data_gender.js
 
   var responsesCounts = countGenderResponses(submissions)
 
@@ -91,7 +166,14 @@ const countGenderResponses = submissions => {
 
 // ***** TEST with node <filename>  ********
 // var genderCounts = countGenderResponses(submissions)
+<<<<<<< HEAD:helpers/parse_data_gender.js
 // const submissions = surveyData.submissions;
 // getGenderDataForChart(submissions);
 
 export { getGenderDataForChart }
+=======
+const submissions = surveyData.submissions;
+getGenderDataForChart(submissions);
+
+export {getGenderDataForChart};
+>>>>>>> github:src/helpers/parse_data_gender.js

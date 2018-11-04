@@ -1,10 +1,14 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+<<<<<<< HEAD
 import genderSchema from '../../helpers/genderSchema'
 import frameworksSchema from '../../helpers/frameworksSchema'
 import languagesSchema from '../../helpers/languagesSchema'
 import yearSchema from '../../helpers/yearsSchema'
 import getSurveyResults from '../../getSurveyData'
+=======
+import getSurveyResults from '../helpers/getSurveyData'
+>>>>>>> github
 
 import Layout from '../components/layout'
 import LanguagesKnownChart from '../components/languagesKnownChart'

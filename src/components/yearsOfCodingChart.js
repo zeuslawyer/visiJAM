@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Highcharts from 'highcharts'
 import HighchartsReact from 'highcharts-react-official'
-import EXPERIENCE from '../../helpers/parse_data_years_coding'
+import EXPERIENCE from '../helpers/parse_data_years_coding'
 
 const options = {
   chart: {

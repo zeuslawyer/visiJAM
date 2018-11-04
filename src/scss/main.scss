@@ -8,11 +8,23 @@ body {
   border: 1px solid #ccc;
 }
 
-.header{
+.header {
   background-color: khaki;
-  width: 100%;
+  width: 100vw;
   margin-bottom: 0.5rem;
   padding-bottom: 1rem;
+
+  h1 {
+    text-align: center;
+    margin: 0 0 1rem;
+    font-size: 5rem;
+  }
+}
+
+.paragraph-container {
+  max-width: 500px;
+  text-align: center;
+  font-size: 1.2rem;
 }
 
 .card {
