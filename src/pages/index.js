@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import genderSchema from '../../helpers/genderSchema'
 import frameworksSchema from '../../helpers/frameworksSchema'
+import languagesSchema from '../../helpers/languagesSchema'
+import yearSchema from '../../helpers/yearsSchema'
 import getSurveyResults from '../../getSurveyData'
 
 import Layout from '../components/layout'
@@ -9,6 +11,7 @@ import LanguagesKnownChart from '../components/languagesKnownChart'
 import GenderChart from '../components/genderChart'
 import YearsOfCodingChart from '../components/yearsOfCodingChart'
 import FrameworksKnownChart from '../components/frameworksKnownChart'
+import yearsSchema from '../../helpers/yearsSchema'
 
 class IndexPage extends Component {
   constructor(props) {
@@ -17,6 +20,8 @@ class IndexPage extends Component {
       loading: true,
       genderData: genderSchema,
       frameworksData: frameworksSchema,
+      languagesData: languagesSchema,
+      yearsCodingData: yearsSchema,
     }
     //if we call "getData" here, the app works, but gives a warning about setting state on an unmounted component
     //and data is not updated in the charts
@@ -34,10 +39,11 @@ class IndexPage extends Component {
     // console.log('inside getData fff')
     console.log('<<<MADE API CALL>>>')
     getSurveyResults(data => {
-      console.log('data >>>', data)
       this.setState({
         genderData: data.genderData,
         frameworksData: data.frameworksData,
+        languagesData: data.languagesData,
+        yearsCodingData: data.yearsCodingData,
         loading: false,
       })
     })
@@ -63,7 +69,7 @@ class IndexPage extends Component {
             <div className="col col-lg-6">
               <div className="card">
                 <div className="card-body">
-                  {/* <LanguagesKnownChart options={this.chartData.languagesData} /> */}
+                  <LanguagesKnownChart options={this.state.languagesData} />
                 </div>
               </div>
             </div>
@@ -79,9 +85,7 @@ class IndexPage extends Component {
             <div className="col col-lg-6">
               <div className="card">
                 <div className="card-body">
-                  {/* <YearsOfCodingChart
-                    options={this.chartData.yearsCodingData}
-                  /> */}
+                  <YearsOfCodingChart options={this.state.yearsCodingData} />
                 </div>
               </div>
             </div>

@@ -18,13 +18,11 @@ function getSurveyResults(cb) {
     .get('https://formspree.io/api/0/forms/xolnelem/submissions')
     .then(res => {
       const data = res.data
-      // console.log('data >>>>>>>', data.submissions)
-      let frameworksData = formatDataFrameworks(res.data)
-      // let languagesData = masterFunc(res.data)
-      // let yearsCodingData = findUserExperience(res.data)
+      let frameworksData = formatDataFrameworks(data)
+      let languagesData = masterFunc(data)
+      let yearsCodingData = findUserExperience(data)
       let genderData = getGenderDataForChart(data.submissions)
-      // return { frameworksData, languagesData, yearsCodingData, genderData }
-      return cb({ genderData, frameworksData })
+      return cb({ genderData, frameworksData, languagesData, yearsCodingData })
     })
     .catch(err => console.log(err.message))
 }
