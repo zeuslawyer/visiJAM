@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
-import { StaticQuery, graphql } from 'gatsby'
+import { StaticQuery, graphql, Link } from 'gatsby'
 
 import Header from './header'
 import '../scss/main.scss'
@@ -47,7 +47,15 @@ const Layout = ({ children }) => (
               <h1 style={headerStyle}>VisiJAM</h1>
               <div className="row d-flex justify-content-center">
                 <div className="col" style={paragraphStyle}>
-                 <p>Real-time Hackathon Demographics</p>
+                <p>Real-time Hackathon Demographics</p>                 
+                <div className="d-flex justify-content-around">
+                 <Link to="/">
+                   <button className="btn btn-outline-dark" >Home</button>
+                 </Link>
+                 <Link to="/entry-form">
+                   <button className="btn btn-outline-dark" >Entry form</button>
+                 </Link>
+                 </div>
                 </div>
               </div>
             </div>

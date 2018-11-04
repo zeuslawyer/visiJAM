@@ -23,15 +23,21 @@ class IndexPage extends Component {
       languagesData: languagesSchema,
       yearsCodingData: yearsSchema,
     }
-    this.getData = this.getData.bind(this)
-  }
-
-  componentDidMount() {
+    //if we call "getData" here, the app works, but gives a warning about setting state on an unmounted component
+    //and data is not updated in the charts
+    //other option is to call in render (gets rid of error but makes continuous calls api--> infinite loop of updating state)
     this.getData()
+    // this.getData = this.getData.bind(this)
   }
 
-  // getSurveyResults returns object with keys: { frameworksData, languagesData, yearsCodingData, genderData }
+  // componentDidMount() {
+  //   this.getData()
+  // }
+
+  // returns { frameworksData, languagesData, yearsCodingData, genderData }
   getData() {
+    // console.log('inside getData fff')
+    console.log('<<<MADE API CALL>>>')
     getSurveyResults(data => {
       this.setState({
         genderData: data.genderData,
@@ -45,7 +51,15 @@ class IndexPage extends Component {
 
   render() {
     if (this.state.loading) {
-      return <div>LOADING</div>
+      // return <div>LOADING</div>
+      return (
+        <div className="header ">
+          <img
+            className="loader"
+            src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/585d0331234507.564a1d239ac5e.gif"
+          />
+        </div>
+      )
     }
 
     return (
@@ -67,7 +81,7 @@ class IndexPage extends Component {
               </div>
             </div>
           </div>
-          <div className="row">
+          <div className="row mt-3">
             <div className="col col-lg-6">
               <div className="card">
                 <div className="card-body">
