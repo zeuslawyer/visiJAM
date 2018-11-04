@@ -1,11 +1,6 @@
 // import * as surveyData from './form-schema.json'
-<<<<<<< HEAD:helpers/parse_data_gender.js
-import genderSchema from './genderSchema'
-const surveyData = require('../form-schema.json')
-=======
 const surveyData= require('../../form-schema.json')
 
->>>>>>> github:src/helpers/parse_data_gender.js
 /*   INSTRUCTIONS
     @Params - the array that contains all the respondent responses. on the Formspree API JSON response
     this is the 'submissions' property - the same property in the form-schema.json
@@ -18,10 +13,6 @@ const surveyData= require('../../form-schema.json')
 const getGenderDataForChart = submissions => {
   //   console.log('....getGenderDataForChart() invoked....')
 
-<<<<<<< HEAD:helpers/parse_data_gender.js
-  //base schema for highCharts before axios call to get formData
-  let startingScehma = genderSchema
-=======
     var responsesCounts = countGenderResponses(submissions);
 
     let results = []
@@ -89,9 +80,8 @@ const countGenderResponses = (submissions) => {
     // console.log(res)
     return res
 }
->>>>>>> github:src/helpers/parse_data_gender.js
 
-  var responsesCounts = countGenderResponses(submissions)
+  var responsesCounts = countGenderResponses(submissions) {
 
   let results = []
   let males = {
@@ -166,14 +156,7 @@ const countGenderResponses = submissions => {
 
 // ***** TEST with node <filename>  ********
 // var genderCounts = countGenderResponses(submissions)
-<<<<<<< HEAD:helpers/parse_data_gender.js
-// const submissions = surveyData.submissions;
-// getGenderDataForChart(submissions);
-
-export { getGenderDataForChart }
-=======
 const submissions = surveyData.submissions;
 getGenderDataForChart(submissions);
 
 export {getGenderDataForChart};
->>>>>>> github:src/helpers/parse_data_gender.js

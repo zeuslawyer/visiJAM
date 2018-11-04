@@ -6,8 +6,8 @@ import Layout from '../components/layout'
 const EntryForm = () => (
   <Layout>
     <div className="container-fluid pt-4">
-      <form action="https://formspree.io/xolnelem" method="POST">
-        {/* <form action="https://formspree.io/mrlakawm" method="POST"> */}
+      {/* <form action="https://formspree.io/xolnelem" method="POST"> */}
+        <form action="https://formspree.io/mrlakawm" method="POST">
         <div className="email form-group w-50 mx-auto">
           <label htmlFor="node[email]">Email address</label>
           <input
