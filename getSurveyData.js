@@ -1,8 +1,8 @@
 import axios from 'axios'
 import formatDataFrameworks from './helpers/parse_data_frameworks'
-import masterFunc from '../helpers/parse_data_languages'
-import { getGenderDataForChart } from '../helpers/parse_data_gender'
-import findUserExperience from '../helpers/parse_data_years_coding'
+import masterFunc from './helpers/parse_data_languages'
+import { getGenderDataForChart } from './helpers/parse_data_gender'
+import findUserExperience from './helpers/parse_data_years_coding'
 
 function getSurveyResults() {
   const instance = axios.create({
@@ -17,9 +17,12 @@ function getSurveyResults() {
       const data = res.data
       console.log(data)
       let frameworksData = formatDataFrameworks(res.data)
-      let languagesData = masterFunc(res.data)
+      // let languagesData = masterFunc(res.data)
       let yearsCodingData = findUserExperience(res.data)
       let genderData = getGenderDataForChart(res.data.submissions)
-      return { frameworksData, languagesData, yearsCodingData, genderData }
+      // return { frameworksData, languagesData, yearsCodingData, genderData }
+      return { frameworksData, yearsCodingData, genderData }
     })
 }
+
+export default getSurveyResults

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component } from 'react'
 import Highcharts from 'highcharts'
 import HighchartsReact from 'highcharts-react-official'
 import frameworksData from '../../helpers/parse_data_frameworks'
@@ -31,7 +31,12 @@ const options = {
   series: frameworksData,
 }
 
-const FrameworksKnownChart = () => (
-  <HighchartsReact highcharts={Highcharts} options={options} />
-)
+class FrameworksKnownChart extends Component {
+  render() {
+    return (
+      <HighchartsReact highcharts={Highcharts} options={this.props.options} />
+    )
+  }
+}
+
 export default FrameworksKnownChart

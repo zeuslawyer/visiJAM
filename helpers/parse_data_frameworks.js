@@ -1,7 +1,7 @@
-import * as surveyData from '../form-schema.json'
-
+//OLD CODE--> for reference (now data comes from axios req)
+// import * as surveyData from '../form-schema.json'
 //array of dataObjects for each user who has submitted form
-const FORM_SUBMISSIONS = surveyData.submissions
+// const FORM_SUBMISSIONS = surveyData.submissions
 
 //formats data for Frameworks charts
 //takes raw JSON array from form schema and returns Object with total count of users by experience level
@@ -22,7 +22,36 @@ function getCountsFrameworks(formData, framework) {
 //formats data for Frameworks charts
 //takes object with total users by language and experience levels and returns data Object matching HighCharts Schema
 //example input {Javascript: {beginner: 4, intermediate: 8, advanced: 10}}
-function formatDataFrameworks(countsObject) {
+function formatDataFrameworks(formData) {
+  let angularCount = getCountsFrameworks(
+    formData.submissions,
+    'angularFrameworkExperience'
+  )
+  let jqueryCount = getCountsFrameworks(
+    formData.submissions,
+    'jqueryFrameworkExperience'
+  )
+  let reactCount = getCountsFrameworks(
+    formData.submissions,
+    'reactFrameworkExperience'
+  )
+  let vueCount = getCountsFrameworks(
+    formData.submissions,
+    'vueFrameworkExperience'
+  )
+  let otherCount = getCountsFrameworks(
+    formData.submissions,
+    'otherFrameworkExperience'
+  )
+
+  let countsObject = {
+    angularCount,
+    jqueryCount,
+    reactCount,
+    vueCount,
+    otherCount,
+  }
+
   return [
     {
       name: 'Advanced',
@@ -57,26 +86,4 @@ function formatDataFrameworks(countsObject) {
   ]
 }
 
-let angularCount = getCountsFrameworks(
-  FORM_SUBMISSIONS,
-  'angularFrameworkExperience'
-)
-let jqueryCount = getCountsFrameworks(
-  FORM_SUBMISSIONS,
-  'jqueryFrameworkExperience'
-)
-let reactCount = getCountsFrameworks(
-  FORM_SUBMISSIONS,
-  'reactFrameworkExperience'
-)
-let vueCount = getCountsFrameworks(FORM_SUBMISSIONS, 'vueFrameworkExperience')
-let otherCount = getCountsFrameworks(
-  FORM_SUBMISSIONS,
-  'otherFrameworkExperience'
-)
-
-let counts = { angularCount, jqueryCount, reactCount, vueCount, otherCount }
-
-let frameworksData = formatDataFrameworks(counts)
-
-export default frameworksData
+export default formatDataFrameworks
