@@ -6,7 +6,7 @@ import Layout from '../components/layout'
 const EntryForm = () => (
   <Layout>
    <div className="container">
-    <form action="https://formspree.io/xolnelem" method="POST">
+    <form action="https://formspree.io/mrlakawm" method="POST">
     <div className="row d-flex justify-content-center">
       <div className="col col-sm-6 col-md-5 email">
         <div className="form-group mx-auto">
