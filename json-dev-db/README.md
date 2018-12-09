@@ -6,3 +6,6 @@ Depending on our schema, our API end-points may be /users and /hackathon etc
 This db emulates a real db, this is very useful for local machine prototyping and emulating DB calls.
 I will port across the data from formspree - you will find it as an array at http://localhost:8888/submission
 This is **only for testing purposes**.
+
+#SOME GOTCHAS
+1) The database endpoints need to be initialised directly in the db.json file.  For example:  before i could create or write to the '/submissions' endpoint I had to first creat it in the JSON file with am empty array.  Please note that JSON formatting is != JS object formatting.  Keys have to be enclosed in "" as they're strings. 
