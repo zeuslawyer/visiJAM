@@ -1,0 +1,15 @@
+{
+    "name": "json-dev-db",
+    "version": "1.0.0",
+    "description": "dev database server",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "json-server -p 8888 -w db.json"
+    },
+    "author": "zubin | zeuscoder",
+    "license": "ISC",
+    "dependencies": {
+        "json-server": "^0.14.0"
+    }
+}
