@@ -10,3 +10,8 @@ yarn-error.log
 # Other
 /.history
 /.vscode
+*.env
+src/lambda/secrets.js
+lambda/secrets.js
+secrets.js
+
