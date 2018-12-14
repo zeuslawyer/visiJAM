@@ -13,28 +13,27 @@ function connectToDatabase(uri) {
 
   if (cachedClient) {
     console.log('=> using cached database instance')
-    return Promise.resolve(cachedClient)
+    return Promise.resolve(cachedClient.db('visiJAM-DB'))
   }
 
   return MongoClient.connect(uri).then(client => {
     cachedClient = client
-    return cachedClient
+    return cachedClient.db('visiJAM-DB')
   })
 }
 
-function queryDatabase(client) {
+function queryDatabase(db) {
+  //REFERENCE: docs are http://mongodb.github.io/node-mongodb-native/3.1/api/Cursor.html#toArray
   console.log('=> query database')
-
   return (
-    client
-      .db('visiJAM-DB')
+    db
       .collection('users')
       // .find({ username: 'test' })
       .find({})
       .toArray()
       .then(arr => {
-        console.log('ZUBIN: >>>>>>>   ', arr)
-        return { statusCode: 200, body: 'success' }
+        // console.log('DATABASE RESULT:::: :', arr)
+        return { statusCode: 200, body: JSON.stringify(arr) }
       })
       .catch(err => {
         console.log('=> an error occurred: ', err)
