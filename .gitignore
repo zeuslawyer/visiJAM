@@ -3,15 +3,17 @@
 node_modules
 yarn-error.log
 
-# Build directory
+# Build directory + Folders
 /public
 .DS_Store
+/src/functions/node_modules
+/lambda
 
 # Other
 /.history
 /.vscode
 *.env
-src/lambda/secrets.js
+src/functions/secrets.js
 lambda/secrets.js
 secrets.js
 
