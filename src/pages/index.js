@@ -12,7 +12,7 @@ import GenderChart from '../components/genderChart'
 import YearsOfCodingChart from '../components/yearsOfCodingChart'
 import FrameworksKnownChart from '../components/frameworksKnownChart'
 import yearsSchema from '../../helpers/yearsSchema'
-import loaderGif from '../images/loader_index.gif';
+import loaderGif from '../images/loader_index.gif'
 
 class IndexPage extends Component {
   constructor(props) {
@@ -55,14 +55,12 @@ class IndexPage extends Component {
       // return <div>LOADING</div>
       return (
         <div className="header ">
-          <img
-            className="loader"
-            src={loaderGif}
-          />
+          <img className="loader" src={loaderGif} />
         </div>
       )
     }
 
+    //Random comment to see if changes and PR to Test branch trigger deploy in netlify
     return (
       <Layout>
         <div className="container mt-3">
