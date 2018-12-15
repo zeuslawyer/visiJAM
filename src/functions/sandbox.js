@@ -3,14 +3,12 @@
 //it's included in package.json
 
 //to trigger for local dev use, in CLI at project root type:  npm run start-lambda
-import secrets from '../../secrets'
+
 
 const obj = {
   foo: 'bar',
   spam: 'eggs',
 }
-
-const MONGODB_URI = secrets.ATLAS_DB
 
 exports.handler = function(event, context, callback) {
   console.log('event object is:  ', event) //receive info from the client and event related info
@@ -24,7 +22,7 @@ exports.handler = function(event, context, callback) {
 
   callback(null, {
     statusCode: 200,
-    body: 'This works!', // BODY must send back a string (incl JSON string.)
+    body: JSON.stringify({ event, context }), // BODY must send back a string
     // body: JSON.stringify({ msg: 'Hello, World!', ...obj }),
     // body: MONGODB_URI,
   })

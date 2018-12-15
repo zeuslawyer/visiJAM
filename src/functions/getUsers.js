@@ -1,8 +1,7 @@
 'use strict'
 const MongoClient = require('mongodb').MongoClient
-// import secrets from '../../secrets'
 const secrets = require('../../secrets.js')
-const uri = secrets.uri
+const uri = secrets.URI
 
 // TODO: limit IP access->> https://www.mongodb.com/blog/post/serverless-development-with-nodejs-aws-lambda-mongodb-atlas
 
