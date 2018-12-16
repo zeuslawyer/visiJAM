@@ -7,7 +7,7 @@ yarn-error.log
 /public
 .DS_Store
 /src/functions/node_modules
-lambda
+
 
 # Other
 /.history
