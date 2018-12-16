@@ -1,6 +1,6 @@
 'use strict'
 const MongoClient = require('mongodb').MongoClient
-// import secrets from '../../secrets'
+
 const secrets = require('../../../secrets.js')
 const uri = secrets.URI
 
