@@ -1,28 +1,50 @@
-//This is reference file for functions
-//Best used with netlify-lambda CLI tool for local development and serving
-//it's included in package.json
+'use strict'
+const MongoClient = require('mongodb').MongoClient
 
-//to trigger for local dev use, in CLI at project root type:  npm run start-lambda
+// const { URI } = require('../../secrets.js')
+const uri = process.env.MONGO_URI ? process.env.MONGO_URI : URI
 
-const obj = {
-  foo: 'bar',
-  spam: 'eggs',
+// TODO: limit IP access->> https://www.mongodb.com/blog/post/serverless-development-with-nodejs-aws-lambda-mongodb-atlas
+
+let cachedClient = null
+
+function connectToDatabase(uri) {
+  //existing connection
+  if (cachedClient) {
+    return Promise.resolve(cachedClient.db('visiJAM-DB'))
+  }
+  return MongoClient.connect(uri).then(connection => {
+    cachedClient = connection
+    return cachedClient.db('visiJAM-DB')
+  })
 }
 
-exports.handler = function(event, context, callback) {
-  console.log('event object is:  ', event) //receive info from the client and event related info
-  console.log('context object is:  ', context) // provides user context, including identity claim etc
+function queryDatabase(db, collection) {
+  return db
+    .collection(collection)
+    .find({})
+    .toArray()
+    .then(arr => {
+      // console.log('DATABASE RESULT:::: :', arr)
+      return { statusCode: 200, body: JSON.stringify(arr) }
+    })
+    .catch(err => {
+      console.log('=> an error occurred: ', err)
+      return { statusCode: 500, body: 'error' }
+    })
+}
 
-  /*OPTIONAL - callback invoked only to return data to client.  
-    first arg :  error
-    second arg: object with status code, body etc
-    reference:  https://www.netlify.com/docs/functions/#tools-for-building-javascript-functions
-  */
+module.exports.handler = (event, context, callback) => {
+  context.callbackWaitsForEmptyEventLoop = false
 
-  callback(null, {
-    statusCode: 200,
-    body: JSON.stringify({ event, context }), // BODY must send back a string
-    // body: JSON.stringify({ msg: 'Hello, World!', ...obj }),
-    // body: MONGODB_URI,
-  })
+  connectToDatabase(uri)
+    .then(db => queryDatabase(db, 'users'))
+    .then(result => {
+      console.log('=> returning result: ', result)
+      callback(null, result)
+    })
+    .catch(err => {
+      console.log('=> an error occurred: ', err)
+      callback(err)
+    })
 }
