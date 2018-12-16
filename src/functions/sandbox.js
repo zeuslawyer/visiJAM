@@ -4,7 +4,6 @@
 
 //to trigger for local dev use, in CLI at project root type:  npm run start-lambda
 
-
 const obj = {
   foo: 'bar',
   spam: 'eggs',
