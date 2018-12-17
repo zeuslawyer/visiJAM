@@ -36,9 +36,7 @@ class IndexPage extends Component {
   }
 
   // returns { frameworksData, languagesData, yearsCodingData, genderData }
-  getData() {
-    // console.log('inside getData fff')
-
+  getData = () => {
     getSurveyResults(data => {
       this.setState({
         genderData: data.genderData,
