@@ -1,5 +1,5 @@
 [build]
-  Functions = "lambda"
+  Functions = "src/functions"
   Command = "npm run build"
   publish = "public"
 
