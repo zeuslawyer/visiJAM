@@ -33,7 +33,7 @@
     "start:lambda": "netlify-lambda serve src/functions",
     "build:lambda": "netlify-lambda build src/functions",
     "develop": "gatsby develop",
-    "build:all": "run-p build:**",
+    "build": "run-p build:**",
     "start:all": "run-p start:**",
     "format": "prettier --write \"src/**/*.js\"",
     "test": "echo \"Error: no test specified\" && exit 1"

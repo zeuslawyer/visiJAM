@@ -1,6 +1,6 @@
 [build]
   Functions = "lambda"
-  Command = "npm run build:all"
+  Command = "npm run build"
   publish = "public"
 
 
