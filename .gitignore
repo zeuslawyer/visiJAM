@@ -8,7 +8,7 @@ node_modules
 /public
 .DS_Store
 /src/functions/node_modules
-/lambda
+#/lambda
 
 
 
