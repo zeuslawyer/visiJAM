@@ -1,7 +1,7 @@
 'use strict'
 const MongoClient = require('mongodb').MongoClient
 
-const { URI } = require('../../secrets.js')
+// const { URI } = require('../../secrets.js')
 const uri = process.env.MONGO_URI ? process.env.MONGO_URI : URI
 
 // TODO: limit IP access->> https://www.mongodb.com/blog/post/serverless-development-with-nodejs-aws-lambda-mongodb-atlas
