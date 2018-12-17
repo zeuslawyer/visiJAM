@@ -28,15 +28,15 @@
   ],
   "license": "MIT",
   "scripts": {
-    "build:app": "gatsby build",
     "start:app": "npm run develop",
     "start:lambda": "netlify-lambda serve src/functions",
+    "build:app": "gatsby build",
     "build:lambda": "netlify-lambda build src/functions",
     "develop": "gatsby develop",
-    "build": "run-p build:**",
-    "start:all": "run-p start:**",
     "format": "prettier --write \"src/**/*.js\"",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "run-p build:**",
+    "start": "run-p start:**"
   },
   "devDependencies": {
     "gatsby-cli": "^2.4.4",

@@ -2,6 +2,7 @@
 .cache
 node_modules
 yarn-error.log
+node_modules
 
 # Build directory + Folders
 /public
@@ -10,11 +11,11 @@ yarn-error.log
 /lambda
 
 
+
 # Other
 /.history
 /.vscode
 *.env
 src/functions/secrets.js
-lambda/secrets.js
 secrets.js
 
