@@ -4,8 +4,8 @@ module.exports = {
   siteMetadata: {
     title: 'VisiJAM',
   },
-  for avoiding CORS while developing Netlify Functions locally
-  read more: https://www.gatsbyjs.org/docs/api-proxy/#advanced-proxying
+  // for avoiding CORS while developing Netlify Functions locally
+  // read more: https://www.gatsbyjs.org/docs/api-proxy/#advanced-proxying
   developMiddleware: app => {
     app.use(
       proxy('/.netlify/functions/', {
