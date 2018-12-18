@@ -27,7 +27,7 @@ function createUser(formData, callback) {
       callback(null, {
         statusCode: 200,
         headers: {
-          'Access-Control-Allow-Origin': '*', // this is NO LONGER as form submit url is fixed to match proxy.
+          // 'Access-Control-Allow-Origin': '*', // this is NO LONGER as form submit url is fixed to match proxy.
           // 'Access-Control-Allow-Headers': 'Content-Type',
           // 'Content-Type': 'application/x-www-form-urlencoded',
         },

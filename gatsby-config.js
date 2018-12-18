@@ -16,17 +16,17 @@ module.exports = {
   //     })
   //   )
   // },
-  // developMiddleware: app => {
-  //   app.use(
-  //     '/.netlify/functions/',
-  //     proxy({
-  //       target: 'http://localhost:9000',
-  //       pathRewrite: {
-  //         '/.netlify/functions/': '',
-  //       },
-  //     })
-  //   )
-  // },
+  developMiddleware: app => {
+    app.use(
+      '/.netlify/functions/',
+      proxy({
+        target: 'http://localhost:9000',
+        pathRewrite: {
+          '/.netlify/functions/': '',
+        },
+      })
+    )
+  },
   plugins: [
     'gatsby-plugin-react-helmet',
     {
