@@ -1,6 +1,6 @@
 import Layout from '../components/layout'
 import React from 'react'
-import { Link } from 'gatsby'
+import { Link, navigate } from 'gatsby'
 import axios from 'axios'
 
 class TestForm extends React.Component {
@@ -29,6 +29,7 @@ class TestForm extends React.Component {
       .then(function(user) {
         //handle success
         console.log('RESPONSE from AXIOS: ', user.data)
+        navigate('/')
       })
       .catch(function(error) {
         //handle error

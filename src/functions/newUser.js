@@ -7,6 +7,7 @@ const uri = process.env.MONGO_URI ? process.env.MONGO_URI : secrets.URI
 setupDb()
 
 module.exports.handler = (event, context, callback) => {
+  console.log('\n ****NEW USER ENDPOINT TRIGGERED....***\n')
   context.callbackWaitsForEmptyEventLoop = false
   var formData = JSON.parse(event.body)
   console.log('FORM DATA IS A JS OBJECT >>>>>', formData)
