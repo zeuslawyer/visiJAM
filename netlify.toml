@@ -1,0 +1,8 @@
+[build]
+  Functions = "lambda"
+  Command = "npm run build"
+  publish = "public"
+
+
+
+  
