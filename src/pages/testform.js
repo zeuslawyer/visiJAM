@@ -11,25 +11,28 @@ class TestForm extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault()
-    const data = new FormData(event.target)
-    const headers = {
-      'Access-Control-Allow-Origin': '*',
-      'Access-Control-Allow-Headers': 'Content-Type',
+    const formData = new FormData(event.target)
+
+    //converts formData object into a data object
+    let data = {}
+    for (const [key, value] of formData.entries()) {
+      data[key] = value
     }
-    console.log(data)
+    data = JSON.stringify(data) // stringify prior to sending to server
+    console.log('stringified data is...', data)
+
     axios({
       method: 'post',
       url: 'http://localhost:9000/.netlify/functions/newUser',
       data: data,
-      config: { headers: headers },
     })
-      .then(function(response) {
+      .then(function(user) {
         //handle success
-        console.log(response)
+        console.log('RESPONSE from AXIOS: ', user.data)
       })
-      .catch(function(response) {
+      .catch(function(error) {
         //handle error
-        console.log(response)
+        console.log('ERROR IN AXIOS:   ', error)
       })
   }
 

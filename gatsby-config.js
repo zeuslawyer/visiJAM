@@ -6,17 +6,27 @@ module.exports = {
   },
   // for avoiding CORS while developing Netlify Functions locally
   // read more: https://www.gatsbyjs.org/docs/api-proxy/#advanced-proxying
-  developMiddleware: app => {
-    app.use(
-      '/.netlify/functions/',
-      proxy({
-        target: 'http://localhost:9000',
-        pathRewrite: {
-          '/.netlify/functions/': '',
-        },
-      })
-    )
-  },
+  // developMiddleware: app => {
+  //   app.use(
+  //     proxy('/.netlify/functions/', {
+  //       target: 'http://localhost:9000/',
+  //       pathRewrite: {
+  //         '^/\\.netlify/functions': '',
+  //       },
+  //     })
+  //   )
+  // },
+  // developMiddleware: app => {
+  //   app.use(
+  //     "/.netlify/functions/",
+  //     proxy({
+  //       target: "http://localhost:9000",
+  //       pathRewrite: {
+  //         "/.netlify/functions/": "",
+  //       },
+  //     })
+  //   )
+  // },
   plugins: [
     'gatsby-plugin-react-helmet',
     {

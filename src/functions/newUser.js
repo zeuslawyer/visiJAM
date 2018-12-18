@@ -1,21 +1,16 @@
 const mongoose = require('mongoose')
 const User = require('./Models/User.Model')
-const Note = require('./Models/Note.model')
 const secrets = require('../../secrets')
 
 const uri = process.env.MONGO_URI ? process.env.MONGO_URI : secrets.URI
-
-const headers = {
-  'Access-Control-Allow-Origin': '*',
-  'Access-Control-Allow-Headers': 'Content-Type',
-}
 
 setupDb()
 
 module.exports.handler = (event, context, callback) => {
   context.callbackWaitsForEmptyEventLoop = false
   var formData = JSON.parse(event.body)
-  console.log('EVENT BODY IS >>>>>', formData)
+  console.log('FORM DATA IS A JS OBJECT >>>>>', formData)
+  console.log('EVENT BODY IS a JSON STRING >>>>>', event.body)
   createUser(formData, callback)
 }
 
@@ -24,14 +19,18 @@ function createUser(formData, callback) {
   User.create(formData, function(err, user) {
     if (err) {
       console.log('error saving User', err)
-      mongoose.connection.close()
+      //   mongoose.connection.close()
       callback(err, null)
     } else {
-      console.log(user)
-      mongoose.connection.close()
+      console.log('USER SAVED and RETURNED..... ', user)
+      //   mongoose.connection.close()
       callback(null, {
         statusCode: 200,
-        headers: headers,
+        headers: {
+          'Access-Control-Allow-Origin': '*', // this is needed to remove dev console errors in browser.
+          // 'Access-Control-Allow-Headers': 'Content-Type',
+          // 'Content-Type': 'application/x-www-form-urlencoded',
+        },
         body: JSON.stringify(user),
       })
     }
