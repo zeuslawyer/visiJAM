@@ -23,7 +23,7 @@ class TestForm extends React.Component {
 
     axios({
       method: 'post',
-      url: 'http://localhost:9000/.netlify/functions/newUser',
+      url: '/.netlify/functions/newUser',
       data: data,
     })
       .then(function(user) {
