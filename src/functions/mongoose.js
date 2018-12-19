@@ -2,7 +2,7 @@ const secrets = require('../../secrets')
 const mongoose = require('mongoose')
 const uri = secrets.URI
 
-const Note = require('./Models/Note.model')
+// const Note = require('./Models/Note.model')
 
 mongoose.connect(uri)
 const db = mongoose.connection

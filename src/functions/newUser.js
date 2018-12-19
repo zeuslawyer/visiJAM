@@ -1,8 +1,6 @@
 const mongoose = require('mongoose')
 const User = require('./Models/User.Model')
-const secrets = require('../../secrets')
-
-const uri = process.env.MONGO_URI ? process.env.MONGO_URI : secrets.URI
+const setupDb = require('./db.helpers/setupDb.helper.js')
 
 module.exports.handler = (event, context, callback) => {
   console.log('\n ****NEW USER ENDPOINT TRIGGERED....***\n')
@@ -37,14 +35,3 @@ function createUser(formData, callback) {
   })
 }
 
-function setupDb(callback) {
-  mongoose.connect(uri)
-  const db = mongoose.connection
-  db.on('error', function(err) {
-    console.log('Failed to connect to db because: ', err.message)
-    return callback({ statusCode: 500, body: err.message }, null)
-  })
-  db.once('open', function() {
-    console.log('CONNECTED!')
-  })
-}
