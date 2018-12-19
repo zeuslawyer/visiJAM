@@ -4,10 +4,9 @@ const secrets = require('../../secrets')
 
 const uri = process.env.MONGO_URI ? process.env.MONGO_URI : secrets.URI
 
-setupDb()
-
 module.exports.handler = (event, context, callback) => {
   console.log('\n ****NEW USER ENDPOINT TRIGGERED....***\n')
+  setupDb(callback)
   context.callbackWaitsForEmptyEventLoop = false
   var formData = JSON.parse(event.body)
   console.log('FORM DATA IS A JS OBJECT >>>>>', formData)
@@ -20,11 +19,11 @@ function createUser(formData, callback) {
   User.create(formData, function(err, user) {
     if (err) {
       console.log('error saving User', err)
-      //   mongoose.connection.close()
+      mongoose.connection.close()
       callback(err, null)
     } else {
       console.log('USER SAVED and RETURNED..... ', user)
-      //   mongoose.connection.close()
+      mongoose.connection.close()
       callback(null, {
         statusCode: 200,
         headers: {
@@ -38,10 +37,13 @@ function createUser(formData, callback) {
   })
 }
 
-function setupDb() {
+function setupDb(callback) {
   mongoose.connect(uri)
   const db = mongoose.connection
-  db.on('error', console.error.bind(console, 'connection error:'))
+  db.on('error', function(err) {
+    console.log('Failed to connect to db because: ', err.message)
+    return callback({ statusCode: 500, body: err.message }, null)
+  })
   db.once('open', function() {
     console.log('CONNECTED!')
   })

@@ -33,7 +33,10 @@ class TestForm extends React.Component {
       })
       .catch(function(error) {
         //handle error
-        console.log('ERROR IN AXIOS:   ', error)
+        console.log(
+          'ERROR IN AXIOS or DB. Also Check DB handler and lambda logs \n',
+          error
+        )
       })
   }
 
