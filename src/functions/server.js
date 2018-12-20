@@ -6,6 +6,7 @@ const mongoose = require('mongoose')
 const User = require('./Models/User.Model')
 const secrets = require('../../secrets')
 const uri = process.env.MONGO_URI ? process.env.MONGO_URI : secrets.URI
+const DB_NAME = process.env.PROD_DB ? process.env.PROD_DB : 'visiJAM-DB'
 
 /*
     this is an express server.  
@@ -18,7 +19,7 @@ const app = express()
 const router = express.Router()
 mongoose.connect(
   uri,
-  { useNewUrlParser: true }
+  { useNewUrlParser: true, dbName: DB_NAME }
 )
 
 app.use(bodyParser.json())
