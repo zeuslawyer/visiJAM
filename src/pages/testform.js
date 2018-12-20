@@ -18,13 +18,12 @@ class TestForm extends React.Component {
     for (const [key, value] of formData.entries()) {
       data[key] = value
     }
-    data = JSON.stringify(data) // stringify prior to sending to server
-    console.log('stringified data is...', data)
+    console.log(' data object is...', data)
 
     axios({
       method: 'post',
-      url: '/.netlify/functions/server/user/new',
-      // url: '/.netlify/functions/newUser',   //...>>> this is used only if NOT using express
+      url: '/.netlify/functions/server/user/new', //--->this is endoint for lambda express server
+      // url: '/.netlify/functions/newUser', //...>>> this is endpoint for lambda funcs WITHOUT express.
       data: data,
     })
       .then(function(user) {

@@ -5,10 +5,10 @@ const setupDb = require('./db.helpers/setupDb.helper.js')
 module.exports.handler = (event, context, callback) => {
   console.log('\n ****NEW USER ENDPOINT TRIGGERED....***\n')
   setupDb(callback)
+
   context.callbackWaitsForEmptyEventLoop = false
   var formData = JSON.parse(event.body)
-  console.log('FORM DATA IS A JS OBJECT >>>>>', formData)
-  console.log('EVENT BODY IS a JSON STRING >>>>>', event.body)
+
   createUser(formData, callback)
 }
 
@@ -34,4 +34,3 @@ function createUser(formData, callback) {
     }
   })
 }
-

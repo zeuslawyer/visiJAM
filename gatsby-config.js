@@ -22,8 +22,8 @@ module.exports = {
       proxy({
         target: 'http://localhost:9000',
         pathRewrite: {
-          '/.netlify/functions/server': '/.netlify/functions/server',
-          '/.netlify/functions/': '',
+          '/.netlify/functions/server': '/.netlify/functions/server', //this is rewrite for express server--> becomes :9000//.netlify/functions/server/<path>
+          '/.netlify/functions/': '', // this is rewrite for non-express endpoints -->becomes :9000/<endpoint>
         },
       })
     )
