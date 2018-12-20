@@ -55,6 +55,7 @@ router.get('/users', function(req, res) {
   })
 })
 
+
 router.post('/user/new', function(req, res) {
   console.log('\n **** POST NEW USER ROUTE TRIGGERED....***\n')
   // console.log(req.body)
