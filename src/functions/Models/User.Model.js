@@ -15,4 +15,4 @@ const UserSchema = new mongoose.Schema(
   schemaConfig
 )
 
-module.exports = mongoose.model('User', UserSchema) // this creates a mongo collection called 'notes'->automatically pluralised
+module.exports = mongoose.model('User', UserSchema) // this creates a mongo collection called 'User'->automatically pluralised

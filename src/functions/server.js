@@ -17,7 +17,7 @@ const uri = process.env.MONGO_URI ? process.env.MONGO_URI : secrets.URI
 const app = express()
 const router = express.Router()
 mongoose.connect(
-  'mongodb+srv://teamAccess:teamVisi_2018@visijam-db-jfc5t.mongodb.net/visiJAM-DB?retryWrites=true',
+  uri,
   { useNewUrlParser: true }
 )
 
