@@ -27,30 +27,47 @@ app.use(
     extended: true,
   })
 )
-app.use('/.netlify/functions/server', router) // path must route to lambda
+// path must route to netlify lambda path
+app.use('/.netlify/functions/server', router)
+
+//********************ROUTES ************************** //
 
 router.get('/', (req, res) => {
   res.writeHead(200, { 'Content-Type': 'text/html' })
   res.write('<h1>Hello from VisiJAM!</h1>')
   res.end()
 })
-
+router.get('/test', (req, res) => {
+  res.send('OK!')
+})
 router.get('/users', function(req, res) {
-  console.log('\n **** GET ALL USERS ENDPOINT TRIGGERED....***\n')
-//   console.log('\nPATH of request>>> ', req.path)
+  console.log('\n **** GET ALL USERS ROUTE TRIGGERED....***\n')
+  // console.log('\nPATH of request>>> ', req.path)
 
   User.find({}).exec(function(err, users) {
     if (err) {
+      console.error('error retrieving users...')
       res.send('error occured')
     } else {
-      //   console.log(users)
+      // console.log(users)
       res.json(users)
     }
   })
 })
-// router.get('/users', (req, res) => res.json({ req: req.method }))
 
-router.post('/test', (req, res) => res.json({ postBody: req.body }))
+router.post('/user/new', function(req, res) {
+  console.log('\n **** POST NEW USER ROUTE TRIGGERED....***\n')
+  // console.log(req.body)
+  User.create(req.body, function(err, user) {
+    if (err) {
+      res.send('error saving new user......')
+      console.error('error saving new user......')
+    } else {
+      console.log(user)
+      res.json(user)
+    }
+  })
+})
 
 module.exports = app
 module.exports.handler = serverless(app)
