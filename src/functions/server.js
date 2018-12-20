@@ -33,14 +33,19 @@ app.use('/.netlify/functions/server', router)
 
 //********************ROUTES ************************** //
 
+/*
++================ root route ==========================
+*/
+
 router.get('/', (req, res) => {
   res.writeHead(200, { 'Content-Type': 'text/html' })
   res.write('<h1>Hello from VisiJAM!</h1>')
   res.end()
 })
-router.get('/test', (req, res) => {
-  res.send('OK!')
-})
+
+/*
++================ get all users route ==========================
+*/
 router.get('/users', function(req, res) {
   console.log('\n **** GET ALL USERS ROUTE TRIGGERED....***\n')
   // console.log('\nPATH of request>>> ', req.path)
@@ -56,6 +61,10 @@ router.get('/users', function(req, res) {
   })
 })
 
+/*
++================ create a new user route ==========================
+*/
+
 router.post('/user/new', function(req, res) {
   console.log('\n **** POST NEW USER ROUTE TRIGGERED....***\n')
   User.create(req.body, function(err, user) {
@@ -64,6 +73,24 @@ router.post('/user/new', function(req, res) {
       console.error('error saving new user......')
     } else {
       console.log(user)
+      res.json(user)
+    }
+  })
+})
+
+/*
++================ delete a user route ==========================
+*/
+
+router.delete('/user/:id', function(req, res) {
+  console.log('\n **** DELETE ONE USER ROUTE TRIGGERED....***\n')
+  const query = { _id: req.params.id }
+  User.findOneAndDelete(query, function(err, user) {
+    if (err) {
+      res.send('Error deleting  user. Perhaps not found.')
+      console.error('error deleting the user...... ', req.params.id)
+    } else {
+      console.log(`DELETED user with id: ${user.id}  `, user)
       res.json(user)
     }
   })
