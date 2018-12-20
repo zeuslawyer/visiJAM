@@ -1,50 +1,23 @@
-'use strict'
-const MongoClient = require('mongodb').MongoClient
-
-const { URI } = require('../../secrets.js')
-const uri = process.env.MONGO_URI ? process.env.MONGO_URI : URI
-
-// TODO: limit IP access->> https://www.mongodb.com/blog/post/serverless-development-with-nodejs-aws-lambda-mongodb-atlas
-
-let cachedClient = null
-
-function connectToDatabase(uri) {
-  //existing connection
-  if (cachedClient) {
-    return Promise.resolve(cachedClient.db('visiJAM-DB'))
-  }
-  return MongoClient.connect(uri).then(connection => {
-    cachedClient = connection
-    return cachedClient.db('visiJAM-DB')
-  })
-}
-
-function queryDatabase(db, collection) {
-  return db
-    .collection(collection)
-    .find({})
-    .toArray()
-    .then(arr => {
-      // console.log('DATABASE RESULT:::: :', arr)
-      return { statusCode: 200, body: JSON.stringify(arr) }
-    })
-    .catch(err => {
-      console.log('=> an error occurred: ', err)
-      return { statusCode: 500, body: 'error' }
-    })
-}
+const mongoose = require('mongoose')
+const User = require('./Models/User.Model')
+const setupDb = require('./db.helpers/setupDb.helper.js')
 
 module.exports.handler = (event, context, callback) => {
+  console.log('\n **** GET ALL USERS ENDPOINT TRIGGERED....***\n')
+  setupDb(callback)
   context.callbackWaitsForEmptyEventLoop = false
 
-  connectToDatabase(uri)
-    .then(db => queryDatabase(db, 'users'))
-    .then(result => {
-      console.log('=> returning result: ', result)
-      callback(null, result)
-    })
-    .catch(err => {
-      console.log('=> an error occurred: ', err)
-      callback(err)
-    })
+  if (event.httpMethod !== 'GET') {
+    return callback({ statusCode: 405, body: 'only GET methods allowed' }, null)
+  }
+  getUsers(callback)
+}
+
+function getUsers(callback) {
+  console.log('FINDING.....')
+  User.find({})
+    .then(users =>
+      callback(null, { statusCode: 200, body: JSON.stringify(users) })
+    )
+    .catch(err => callback({ statusCode: 400, body: err.message }, null))
 }
